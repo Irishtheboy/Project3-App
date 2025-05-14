@@ -13,7 +13,7 @@ public class User {
     public User() {
     }
 
-    private User(Builder builder) {
+    User(Builder builder) {
         this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
