@@ -3,11 +3,7 @@ package za.co.admatech.domain;
 public class Member extends User {
     private double averageRating;
 
-    public Member() {
-        super();
-    }
-
-    public Member(Builder builder) {
+    private Member(Builder builder) {
         super(builder);
         this.averageRating = builder.averageRating;
     }
@@ -16,21 +12,9 @@ public class Member extends User {
         return averageRating;
     }
 
-    public void setAverageRating(double averageRating) {
-        this.averageRating = averageRating;
-    }
-
     @Override
     public String toString() {
-        return "Member{" +
-                "userId='" + getUserId() + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", passwordHash='" + getPasswordHash() + '\'' +
-                ", averageRating=" + averageRating +
-                '}';
+        return super.toString() + ", averageRating=" + averageRating;
     }
 
     public static class Builder extends User.Builder {
@@ -38,6 +22,42 @@ public class Member extends User {
 
         public Builder setAverageRating(double averageRating) {
             this.averageRating = averageRating;
+            return this;
+        }
+
+        @Override
+        public Builder setUserId(String userId) {
+            super.setUserId(userId);
+            return this;
+        }
+
+        @Override
+        public Builder setFirstName(String firstName) {
+            super.setFirstName(firstName);
+            return this;
+        }
+
+        @Override
+        public Builder setLastName(String lastName) {
+            super.setLastName(lastName);
+            return this;
+        }
+
+        @Override
+        public Builder setEmail(String email) {
+            super.setEmail(email);
+            return this;
+        }
+
+        @Override
+        public Builder setPhoneNumber(String phoneNumber) {
+            super.setPhoneNumber(phoneNumber);
+            return this;
+        }
+
+        @Override
+        public Builder setPasswordHash(String passwordHash) {
+            super.setPasswordHash(passwordHash);
             return this;
         }
 
