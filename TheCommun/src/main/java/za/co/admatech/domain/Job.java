@@ -5,7 +5,7 @@ import za.co.admatech.domain.enums.JobStatus;
 import java.time.LocalDate;
 
 public class Job {
-    private short jodId;
+    private short jobId;
     private String title;
     private String description;
     private String category;
@@ -16,7 +16,7 @@ public class Job {
     }
 
     private Job (Builder builder) {
-        this.jodId = builder.jodId;
+        this.jobId = builder.jobId;
         this.title = builder.title;
         this.description = builder.description;
         this.category = builder.category;
@@ -25,7 +25,7 @@ public class Job {
     }
 
     public short getJodId() {
-        return jodId;
+        return jobId;
     }
 
     public String getTitle() {
@@ -51,7 +51,7 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "jodId=" + jodId +
+                "jodId=" + jobId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
@@ -61,15 +61,15 @@ public class Job {
     }
 
     public static class Builder {
-        private short jodId;
+        private short jobId;
         private String title;
         private String description;
         private String category;
         private LocalDate postedDate;
         private JobStatus jobStatus;
 
-        public Builder setJodId(short jodId) {
-            this.jodId = jodId;
+        public Builder setJobId(short jobId) {
+            this.jobId = jobId;
             return this;
         }
 
@@ -99,7 +99,7 @@ public class Job {
         }
 
         public Builder copy (Job job) {
-            this.jodId = job.jodId;
+            this.jobId = job.jobId;
             this.title = job.title;
             this.description = job.description;
             this.category = job.category;
