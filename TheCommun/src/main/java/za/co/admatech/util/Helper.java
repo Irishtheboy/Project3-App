@@ -4,12 +4,17 @@ import org.apache.commons.validator.routines.EmailValidator;
 import za.co.admatech.domain.enums.DisputeStatus;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Helper {
     public static boolean isNullOrEmpty(String s) {
         if (s.isEmpty() || s == null)
             return true;
         return false;
+    }
+
+    public static String generateId() {
+        return UUID.randomUUID().toString();
     }
 
     public static boolean isValidEmail(String email) {
