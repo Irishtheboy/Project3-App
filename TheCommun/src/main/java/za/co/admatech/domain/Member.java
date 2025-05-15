@@ -1,5 +1,6 @@
 package za.co.admatech.domain;
 
+
 public class Member extends User {
     private double averageRating;
 

@@ -1,7 +1,11 @@
 package za.co.admatech.domain;
 
-public class User {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class User {
+    @Id
     private String userId;
     private String firstName;
     private String lastName;

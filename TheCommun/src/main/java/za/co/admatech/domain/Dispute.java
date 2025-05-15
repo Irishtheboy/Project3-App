@@ -1,10 +1,14 @@
 package za.co.admatech.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import za.co.admatech.domain.enums.DisputeStatus;
 
 import java.time.LocalDate;
 
+@Entity
 public class Dispute {
+    @Id
     private String disputeId;
     private String description;
     private LocalDate disputeDate;
