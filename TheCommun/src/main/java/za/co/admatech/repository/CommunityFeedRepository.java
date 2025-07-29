@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Repository
 public interface CommunityFeedRepository extends JpaRepository<CommunityFeed, String> {
 
+    CommunityFeed findByCommunityFeedId(String communityFeedId);
+
     CommunityFeed findByName(String name);
 
     CommunityFeed findByTime(LocalDate time);
@@ -21,5 +23,7 @@ public interface CommunityFeedRepository extends JpaRepository<CommunityFeed, St
 
     CommunityFeed findByComment(String comment);
 
-    void deleteByName(String name);
+    CommunityFeed findByRating(String rating);
+
+    void deleteByCommunityFeedId(String communityFeedId);
 }
