@@ -1,12 +1,15 @@
 package za.co.admatech.util;
 // will change over time
 import org.apache.commons.validator.routines.EmailValidator;
+import za.co.admatech.domain.Message;
 import za.co.admatech.domain.enums.DisputeStatus;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 public class Helper {
+
     public static boolean isNullOrEmpty(String s) {
         if (s.isEmpty() || s == null)
             return true;
@@ -82,5 +85,29 @@ public class Helper {
             }
         }
         return false;
+    }
+
+    public static Message createMessage(
+            String messageId,
+            String content,
+            Date timestamp,
+            boolean isRead
+    ) {
+        if (!Helper.areMessageFieldsValid(messageId, content, timestamp)) {
+            return null;
+        }
+
+        return new Message.Builder()
+                .setMessageId(messageId)
+                .setContent(content)
+                .setTimestamp(timestamp)
+                .setIsRead(isRead)
+                .build();
+    }
+
+    private static boolean areMessageFieldsValid(String messageId, String content, Date timestamp) {
+        return !Helper.isNullOrEmpty(messageId) &&
+               !Helper.isNullOrEmpty(content) &&
+               timestamp != null;
     }
 }
